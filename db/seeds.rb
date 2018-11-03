@@ -12,15 +12,21 @@
         email: Faker::Internet.email, 
         password: Faker::Internet.password,
         name: Faker::Name.first_name,
-        surname: Faker::Name.last_name,
+        surmane: Faker::Name.last_name,
         address: Faker::Address.full_address,
         enabled: Faker::Boolean.boolean,        
     });
     
-    user.security_privileges.create!({
-
+    user.privileges.create!({
         privilege: Faker::Military.air_force_rank,
         enabled: Faker::Boolean.boolean,
     });
+
+    damage = Damage.create({
+        name: Faker::App.name,
+        level:Faker::Number.number(1),
+        severity:Faker::App.author,
+        enabled: Faker::Boolean.boolean, 
+    })
 
 end
