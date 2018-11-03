@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :set_user, only: [:show, :update, :destroy]
-
+  require 'bcrypt'
   # GET /users
   # GET /users.json
   def index
@@ -16,13 +14,18 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render :show, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    @user=User.find_by(username: params[:user][:username])
+      if @user && @user.authenticate(params[:user][:password_digest])
+        
+        render json: @user, status: :logged
+      else
+        @user = User.new(user_params)
+         if @user.save
+           render :show, status: :created, location: @user
+          else
+            render json: @user.errors, status: :unprocessable_entity
+          end
+      end
   end
 
   # PATCH/PUT /users/1
@@ -49,6 +52,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :name, :surname, :address, :token, :enabled)
+      params.require(:user).permit(:username, :email, :password_digest, :name, :surname, :address, :token, :enabled)
     end
+    
+
 end

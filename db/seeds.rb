@@ -10,7 +10,7 @@
     user = User.create!({
         username: Faker::Internet.username, 
         email: Faker::Internet.email, 
-        password: Faker::Internet.password,
+        password_digest: Faker::Internet.password,
         name: Faker::Name.first_name,
         surname: Faker::Name.last_name,
         address: Faker::Address.full_address,
