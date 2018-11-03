@@ -48,6 +48,6 @@ class DamagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def damage_params
-      params.require(:damage).permit(:name, :level, :severity, :enabled)
+      params.require(:damage).permit(:name, :level, :severity, :description,:enabled)
     end
 end

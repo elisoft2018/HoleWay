@@ -1,3 +1,3 @@
 class DamageSerializer < ActiveModel::Serializer
-  attributes :id, :name, :level, :severity, :enabled
+  attributes :id, :name, :level, :severity, :description, :enabled
 end

@@ -12,7 +12,7 @@
         email: Faker::Internet.email, 
         password: Faker::Internet.password,
         name: Faker::Name.first_name,
-        surmane: Faker::Name.last_name,
+        surname: Faker::Name.last_name,
         address: Faker::Address.full_address,
         enabled: Faker::Boolean.boolean,        
     });
@@ -26,7 +26,22 @@
         name: Faker::App.name,
         level:Faker::Number.number(1),
         severity:Faker::App.author,
+        description:Faker::GameOfThrones.dragon,
         enabled: Faker::Boolean.boolean, 
+    })
+
+
+    damage.reports.create({
+        photography:Faker::Internet.url,
+        location:Faker::Internet.url,
+        comment:Faker::GameOfThrones.quote,
+        enabled: Faker::Boolean.boolean, 
+    })
+
+    user.comments.create({
+        comment:Faker::GameOfThrones.quote,
+        value:Faker::Number.number(3),
+        report_id: 3,
     })
 
 end
