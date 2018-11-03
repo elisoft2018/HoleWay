@@ -5,6 +5,7 @@ class CreateDamages < ActiveRecord::Migration[5.1]
       t.integer :level
       t.integer :severity
       t.boolean :enabled
+      t.string :description, limit:100
 
       t.timestamps
     end

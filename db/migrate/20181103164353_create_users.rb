@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :password, limit: 255
       t.string :name, limit: 60
-      t.string :surmane, limit: 60
+      t.string :surname, limit: 60
       t.string :address, limit: 100
       t.string :token, limit: 100
       t.boolean :enabled

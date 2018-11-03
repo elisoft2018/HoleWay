@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20181103170433) do
     t.integer "level"
     t.integer "severity"
     t.boolean "enabled"
+    t.string "description", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_damages_on_name"
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(version: 20181103170433) do
     t.string "email"
     t.string "password", limit: 255
     t.string "name", limit: 60
-    t.string "surmane", limit: 60
+    t.string "surname", limit: 60
     t.string "address", limit: 100
     t.string "token", limit: 100
     t.boolean "enabled"
